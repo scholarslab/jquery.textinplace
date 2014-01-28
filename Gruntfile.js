@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.initConfig({
@@ -45,7 +46,19 @@ module.exports = function(grunt) {
         tasks: 'compile'
       }
 
-    }
+    },
+
+    jasmine: {
+
+      dist: {
+        src: 'dist/jquery.textinplace.js',
+        options: {
+          vendor: 'bower_components/jquery/jquery.js',
+          specs: 'dist/jquery.textinplace.spec.js'
+        }
+      }
+
+    },
 
   });
 

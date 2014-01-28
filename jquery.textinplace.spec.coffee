@@ -15,30 +15,30 @@ describe 'In the TextInPlace widget,', ->
   # This creates a new div with a unique ID and adds it to the DOM. It queues
   # it to be destroyed after the current test.
   createDiv = (text='', options={}, setup=null) ->
-    div = jQuery "<div id='tip#{n}'>#{text}</div>"
+    div = $ "<div id='tip#{n}'>#{text}</div>"
 
-    jQuery('body').append(div)
+    $('body').append(div)
     todel.push div
 
     setup(div) if setup?
-    jQuery(div).textinplace(options)
+    $(div).textinplace(options)
 
   getTextNodes = (el) ->
-    # jQuery(el).find(':not(iframe)').andSelf().contents().filter( ->
-    jQuery(el).contents().filter( ->
+    # $(el).find(':not(iframe)').andSelf().contents().filter( ->
+    $(el).contents().filter( ->
       this.nodeType == 3
     )
 
   triggerEditing = (div) ->
     val = div.find 'div.value'
     val.each ->
-      jQuery(this).click()
+      $(this).click()
     val
 
   editBlur = (div, text) ->
     input = div.find ':text'
     input.val text
-    input.each -> jQuery(this).blur()
+    input.each -> $(this).blur()
     input
 
   ## Before- and after-handlers.
@@ -47,7 +47,7 @@ describe 'In the TextInPlace widget,', ->
     n += 1
 
   afterEach ->
-    jQuery(id).remove() for id in todel
+    $(id).remove() for id in todel
     todel.length = 0
 
   ## And finally, the specs themselves.

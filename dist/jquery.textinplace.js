@@ -90,7 +90,7 @@
       },
       _setValue: function(value) {
         var _ref;
-        jQuery('.value', this.div).html(value);
+        $('.value', this.div).html(value);
         if ((_ref = this.text) != null) {
           _ref.val(value);
         }

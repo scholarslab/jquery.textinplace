@@ -14,16 +14,16 @@
       if (setup == null) {
         setup = null;
       }
-      div = jQuery("<div id='tip" + n + "'>" + text + "</div>");
-      jQuery('body').append(div);
+      div = $("<div id='tip" + n + "'>" + text + "</div>");
+      $('body').append(div);
       todel.push(div);
       if (setup != null) {
         setup(div);
       }
-      return jQuery(div).textinplace(options);
+      return $(div).textinplace(options);
     };
     getTextNodes = function(el) {
-      return jQuery(el).contents().filter(function() {
+      return $(el).contents().filter(function() {
         return this.nodeType === 3;
       });
     };
@@ -31,7 +31,7 @@
       var val;
       val = div.find('div.value');
       val.each(function() {
-        return jQuery(this).click();
+        return $(this).click();
       });
       return val;
     };
@@ -40,7 +40,7 @@
       input = div.find(':text');
       input.val(text);
       input.each(function() {
-        return jQuery(this).blur();
+        return $(this).blur();
       });
       return input;
     };
@@ -51,7 +51,7 @@
       var id, _i, _len;
       for (_i = 0, _len = todel.length; _i < _len; _i++) {
         id = todel[_i];
-        jQuery(id).remove();
+        $(id).remove();
       }
       return todel.length = 0;
     });

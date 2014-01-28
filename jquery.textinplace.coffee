@@ -115,7 +115,7 @@
       @div.show()
 
     _setValue: (value) ->
-      jQuery('.value', @div).html value
+      $('.value', @div).html value
       @text?.val value
       @hidden.attr 'value', value
 
