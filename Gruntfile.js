@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 
       dist: {
         files: '*.coffee',
-        tasks: 'compile'
+        tasks: 'default'
       }
 
     },
@@ -53,7 +53,10 @@ module.exports = function(grunt) {
       dist: {
         src: 'dist/jquery.textinplace.js',
         options: {
-          vendor: 'bower_components/jquery/jquery.js',
+          vendor: [
+            'bower_components/jquery/jquery.js',
+            'bower_components/jquery-ui/ui/jquery-ui.js'
+          ],
           specs: 'dist/jquery.textinplace.spec.js'
         }
       }
@@ -62,7 +65,6 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('compile', ['coffee', 'uglify']);
-  grunt.registerTask('default', 'compile');
+  grunt.registerTask('default', ['coffee', 'uglify', 'jasmine']);
 
 };

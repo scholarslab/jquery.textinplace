@@ -1,8 +1,8 @@
 (function() {
-  describe('In the TextInPlace widget,', function() {
+  describe('The TextInPlace widget', function() {
     var createDiv, editBlur, getTextNodes, n, todel, triggerEditing;
-    n = 0;
     todel = [];
+    n = 0;
     createDiv = function(text, options, setup) {
       var div;
       if (text == null) {
@@ -29,7 +29,7 @@
     };
     triggerEditing = function(div) {
       var val;
-      val = div.find('div.value');
+      val = div.find('span.value');
       val.each(function() {
         return $(this).click();
       });
@@ -56,7 +56,7 @@
       return todel.length = 0;
     });
     describe('the container div', function() {
-      it('should have no contents;', function() {
+      it('should have no contents', function() {
         var div, texts;
         div = createDiv("initial text " + n);
         texts = ((function() {
@@ -71,12 +71,12 @@
         })()).join('');
         return expect(texts).toBe('');
       });
-      it('should add a .textinplace class to the container div;', function() {
+      it('should add a .textinplace class to the container div', function() {
         var div;
         div = createDiv();
         return expect(div.hasClass('textinplace')).toBeTruthy();
       });
-      return it('should maintain existing classes on the container div;', function() {
+      return it('should maintain existing classes on the container div', function() {
         var div;
         div = createDiv('', {}, function(d) {
           return d.addClass('something');
@@ -85,44 +85,44 @@
       });
     });
     describe('the hidden input element', function() {
-      it('should be created;', function() {
+      it('should be created', function() {
         var div;
         div = createDiv();
         return expect(div.find('input[type="hidden"]').size()).toBe(1);
       });
-      it('should have a default name;', function() {
+      it('should have a default name', function() {
         var div;
         div = createDiv();
         return expect(div.find('input[type="hidden"]').attr('name')).toBe(div.attr('id'));
       });
-      it('should use a custom name;', function() {
+      it('should use a custom name', function() {
         var div;
         div = createDiv('', {
           form_name: 'customname'
         });
         return expect(div.find('input[type="hidden"]').attr('name')).toBe('customname');
       });
-      return it('should have the value of the initial div;', function() {
+      return it('should have the value of the initial div', function() {
         var div;
         div = createDiv("initial text " + n);
         return expect(div.find('input[type="hidden"]').val()).toBe("initial text " + n);
       });
     });
     describe('the visible div', function() {
-      return it('should wrap the initial value;', function() {
+      return it('should wrap the initial value', function() {
         var div;
         div = createDiv("initial text " + n);
-        return expect(div.find('div.value').html()).toBe("initial text " + n);
+        return expect(div.find('span.value').html()).toBe("initial text " + n);
       });
     });
     return describe('the text input', function() {
-      it("should hide the value div it's clicked on.", function() {
+      it('should hide the value div', function() {
         var div, text;
         div = createDiv("initial text " + n);
         text = triggerEditing(div);
         return expect(text.is(':visible')).toBeFalsy();
       });
-      it('should make a visible text input when the value div is clicked on;', function() {
+      it('should make a visible text input when the value div is clicked on', function() {
         var div, text;
         div = createDiv("initial text " + n);
         triggerEditing(div);
@@ -130,33 +130,33 @@
         expect(text.size()).toBe(1);
         return expect(text.val()).toBe("initial text " + n);
       });
-      it('should hide the text input when it loses focus;', function() {
+      it('should hide the text input when it loses focus', function() {
         var div, text;
         div = createDiv("initial text " + n);
         triggerEditing(div);
         text = editBlur(div, '');
         return expect(text.is(':visible')).toBeFalsy();
       });
-      it('should update the hidden input when the text input loses focus;', function() {
+      it('should update the hidden input when the text input loses focus', function() {
         var div;
         div = createDiv("initial text " + n);
         triggerEditing(div);
         editBlur(div, "updated text " + n);
         return expect(div.find('input[type="hidden"]').attr('value')).toBe("updated text " + n);
       });
-      it('should update the visible div when the text input loses focus;', function() {
+      it('should update the visible div when the text input loses focus', function() {
         var div;
         div = createDiv("initial text " + n);
         triggerEditing(div);
         editBlur(div, "updated text " + n);
-        return expect(div.find('div.value').html()).toBe("updated text " + n);
+        return expect(div.find('span.value').html()).toBe("updated text " + n);
       });
-      return it('should show the value div when the text input loses focus.', function() {
+      return it('should show the value div when the text input loses focus', function() {
         var div;
         div = createDiv("initial text " + n);
         triggerEditing(div);
         editBlur(div, "updated text " + n);
-        return expect(div.find('div.value').is(':visible')).toBeTruthy();
+        return expect(div.find('span.value').is(':visible')).toBeTruthy();
       });
     });
   });

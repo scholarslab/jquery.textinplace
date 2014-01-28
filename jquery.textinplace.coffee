@@ -16,6 +16,7 @@
     }
 
     _create: ->
+
       @element.addClass('textinplace')
       form_name  = this._initFormName()
       text       = @element.html()
@@ -26,10 +27,11 @@
 
       @hidden = $("""
         <input type='hidden' name='#{form_name}' value='#{text}'
-               data-revertto='#{revert_to}'
-               />
-        """)
-      @div    = $("""
+           data-revertto='#{revert_to}'
+         />
+      """)
+
+      @div = $("""
         <div class='valuewrap'>
           <span class='value'>#{text}</span>
           <span class='icons'>
@@ -37,8 +39,9 @@
             <i class='icon-repeat'></i>
           </span>
         </div>
-        """)
-      @text   = null
+      """)
+
+      @text = null
 
       @element.append @hidden
       @element.append @div
@@ -49,17 +52,17 @@
       switch key
         when 'revert_to' then @hidden.attr 'data-revertto', val
 
-      # for jQuery UI <= 1.8
+      # For jQuery UI <= 1.8
       $.Widget.prototype._setOption.apply this, arguments
-      # for jQuery UI >= 1.9
+      # For jQuery UI >= 1.9
       # this._super '_setOption', key, val
 
     destroy: ->
       this._destroy()
-      # for jQuery UI <= 1.8
+      # For jQuery UI <= 1.8
       $.Widget.prototype.destroy.call this
 
-    # for jQuery UI >= 1.9
+    # For jQuery UI >= 1.9
     _destroy: ->
 
     _initFormName: ->
@@ -90,16 +93,19 @@
       this._setValue value
 
     _createTextInput: ->
+
       name  = @options.form_name + "_text"
       value = @hidden.val()
 
       text = $("""
         <input type='text' name='#{name}' value='#{value}' form='' />
-        """)
+      """)
+
       @element.append text
 
       text.blur (ev) =>
         this._textDone()
+
       text.keyup (ev) =>
         if ev.key == 'Enter' || ev.keyCode == 13
           this._textDone()
