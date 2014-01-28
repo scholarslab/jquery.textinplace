@@ -15,6 +15,23 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
+    coffee: {
+      compile: {
+        src: 'jquery.textinplace.coffee',
+        dest: 'jquery.textinplace.js'
+      }
+    },
+
+    uglify: {
+      dist: {
+        src: 'jquery.textinplace.js',
+        dest: 'jquery.textinplace.min.js'
+      }
+    }
+
   });
+
+  grunt.registerTask('compile', ['coffee', 'uglify']);
+  grunt.registerTask('default', 'compile');
 
 };
