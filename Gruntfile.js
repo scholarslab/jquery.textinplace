@@ -16,17 +16,35 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     coffee: {
-      compile: {
+
+      src: {
         src: 'jquery.textinplace.coffee',
-        dest: 'jquery.textinplace.js'
+        dest: 'dist/jquery.textinplace.js'
+      },
+
+      test: {
+        src: 'jquery.textinplace.spec.coffee',
+        dest: 'dist/jquery.textinplace.spec.js'
       }
+
     },
 
     uglify: {
+
       dist: {
-        src: 'jquery.textinplace.js',
-        dest: 'jquery.textinplace.min.js'
+        src: 'dist/jquery.textinplace.js',
+        dest: 'dist/jquery.textinplace.min.js'
       }
+
+    },
+
+    watch: {
+
+      dist: {
+        files: '*.coffee',
+        tasks: 'compile'
+      }
+
     }
 
   });
