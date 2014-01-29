@@ -19,7 +19,7 @@
 
       @element.addClass('textinplace')
       form_name  = this._initFormName()
-      text       = @element.html()
+      text       = @element.text()
       revert_to  = @options.revert_to
       revert_to ?= text
 
