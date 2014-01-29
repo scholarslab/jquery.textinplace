@@ -9,7 +9,7 @@
         var form_name, revert_to, text;
         this.element.addClass('textinplace');
         form_name = this._initFormName();
-        text = this.element.text();
+        text = $.trim(this.element.text());
         revert_to = this.options.revert_to;
         if (revert_to == null) {
           revert_to = text;

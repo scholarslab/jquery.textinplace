@@ -102,9 +102,14 @@
         });
         return expect(div.find('input[type="hidden"]').attr('name')).toBe('customname');
       });
-      return it('should have the value of the initial div', function() {
+      it('should have the value of the initial div', function() {
         var div;
         div = createDiv("initial text " + n);
+        return expect(div.find('input[type="hidden"]').val()).toBe("initial text " + n);
+      });
+      return it('should trim the value of the initial div', function() {
+        var div;
+        div = createDiv(" initial text " + n + " ");
         return expect(div.find('input[type="hidden"]').val()).toBe("initial text " + n);
       });
     });

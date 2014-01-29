@@ -77,6 +77,10 @@ describe 'The TextInPlace widget', ->
       div = createDiv("initial text #{n}")
       expect(div.find('input[type="hidden"]').val()).toBe("initial text #{n}")
 
+    it 'should trim the value of the initial div', ->
+      div = createDiv(" initial text #{n} ")
+      expect(div.find('input[type="hidden"]').val()).toBe("initial text #{n}")
+
   describe 'the visible div', ->
 
     it 'should wrap the initial value', ->
