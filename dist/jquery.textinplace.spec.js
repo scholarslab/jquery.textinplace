@@ -112,12 +112,12 @@
         div = createDiv(" initial text " + n + " ");
         return expect(div.find('input[type="hidden"]').val()).toBe("initial text " + n);
       });
-      it('should preserve apostrophes in the value', function() {
+      it('should preserve single quotes in the value', function() {
         var div;
-        div = createDiv("initial text's");
-        return expect(div.find('input[type="hidden"]').val()).toBe("initial text's");
+        div = createDiv("'initial text'");
+        return expect(div.find('input[type="hidden"]').val()).toBe("'initial text'");
       });
-      return it('should preserve quotes in the value', function() {
+      return it('should preserve double quotes in the value', function() {
         var div;
         div = createDiv('"initial text"');
         return expect(div.find('input[type="hidden"]').val()).toBe('"initial text"');
