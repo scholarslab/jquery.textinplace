@@ -81,14 +81,6 @@ describe 'The TextInPlace widget', ->
       div = createDiv(" initial text #{n} ")
       expect(div.find('input[type="hidden"]').val()).toBe("initial text #{n}")
 
-    it 'should preserve single quotes in the value', ->
-      div = createDiv("'initial text'")
-      expect(div.find('input[type="hidden"]').val()).toBe("'initial text'")
-
-    it 'should preserve double quotes in the value', ->
-      div = createDiv('"initial text"')
-      expect(div.find('input[type="hidden"]').val()).toBe('"initial text"')
-
   describe 'the visible div', ->
 
     it 'should wrap the initial value', ->

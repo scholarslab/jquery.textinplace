@@ -26,7 +26,8 @@
       @element.html ''
 
       @hidden = $("""
-        <input type="hidden" name="#{form_name}" data-revertto="#{revert_to}" />
+        <input type="hidden" name="#{form_name}"
+          data-revertto="#{revert_to}" />
       """)
 
       @hidden.val text
