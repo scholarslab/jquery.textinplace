@@ -15,7 +15,8 @@
           revert_to = text;
         }
         this.element.html('');
-        this.hidden = $("<input type=\"hidden\" name=\"" + form_name + "\" value=\"" + text + "\"\n   data-revertto=\"" + revert_to + "\"\n />");
+        this.hidden = $("<input type=\"hidden\" name=\"" + form_name + "\" data-revertto=\"" + revert_to + "\" />");
+        this.hidden.val(text);
         this.div = $("<div class=\"valuewrap\">\n  <span class=\"value\">" + text + "</span>\n  <span class=\"icons\">\n    <i class=\"icon-pencil\"></i>\n    <i class=\"icon-repeat\"></i>\n  </span>\n</div>");
         this.text = null;
         this.element.append(this.hidden);
