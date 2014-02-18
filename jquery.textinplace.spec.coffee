@@ -77,9 +77,13 @@ describe 'The TextInPlace widget', ->
       div = createDiv("initial text #{n}")
       expect(div.find('input[type="hidden"]').val()).toBe("initial text #{n}")
 
-    it 'should trim the value of the initial div', ->
+    it 'should trim the value', ->
       div = createDiv(" initial text #{n} ")
       expect(div.find('input[type="hidden"]').val()).toBe("initial text #{n}")
+
+    it 'should preserve apostrophes in the value', ->
+      div = createDiv("initial text's #{n}")
+      expect(div.find('input[type="hidden"]').val()).toBe("initial text's #{n}")
 
   describe 'the visible div', ->
 

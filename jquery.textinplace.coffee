@@ -26,17 +26,17 @@
       @element.html ''
 
       @hidden = $("""
-        <input type='hidden' name='#{form_name}' value='#{text}'
-           data-revertto='#{revert_to}'
+        <input type="hidden" name="#{form_name}" value="#{text}"
+           data-revertto="#{revert_to}"
          />
       """)
 
       @div = $("""
-        <div class='valuewrap'>
-          <span class='value'>#{text}</span>
-          <span class='icons'>
-            <i class='icon-pencil'></i>
-            <i class='icon-repeat'></i>
+        <div class="valuewrap">
+          <span class="value">#{text}</span>
+          <span class="icons">
+            <i class="icon-pencil"></i>
+            <i class="icon-repeat"></i>
           </span>
         </div>
       """)
@@ -98,7 +98,7 @@
       value = @hidden.val()
 
       text = $("""
-        <input type='text' name='#{name}' value='#{value}' form='' />
+        <input type="text" name="#{name}" value="#{value}" form="" />
       """)
 
       @element.append text

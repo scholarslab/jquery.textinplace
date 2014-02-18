@@ -107,10 +107,15 @@
         div = createDiv("initial text " + n);
         return expect(div.find('input[type="hidden"]').val()).toBe("initial text " + n);
       });
-      return it('should trim the value of the initial div', function() {
+      it('should trim the value', function() {
         var div;
         div = createDiv(" initial text " + n + " ");
         return expect(div.find('input[type="hidden"]').val()).toBe("initial text " + n);
+      });
+      return it('should preserve apostrophes in the value', function() {
+        var div;
+        div = createDiv("initial text's " + n);
+        return expect(div.find('input[type="hidden"]').val()).toBe("initial text's " + n);
       });
     });
     describe('the visible div', function() {
