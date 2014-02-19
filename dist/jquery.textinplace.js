@@ -97,12 +97,9 @@
         return this.div.show();
       },
       _setValue: function(value) {
-        var _ref;
         $('.value', this.div).html(value);
-        if ((_ref = this.text) != null) {
-          _ref.val(value);
-        }
-        return this.hidden.attr('value', value);
+        this.text.val(value);
+        return this.hidden.val(value);
       }
     });
   })(jQuery);

@@ -125,7 +125,7 @@
 
     _setValue: (value) ->
       $('.value', @div).html value
-      @text?.val value
-      @hidden.attr 'value', value
+      @text.val value
+      @hidden.val value
 
 )(jQuery)
