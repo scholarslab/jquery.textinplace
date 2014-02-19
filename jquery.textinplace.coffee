@@ -99,8 +99,10 @@
       value = @hidden.val()
 
       text = $("""
-        <input type="text" name="#{name}" value="#{value}" form="" />
+        <input type="text" name="#{name}" form="" />
       """)
+
+      text.val value
 
       @element.append text
 

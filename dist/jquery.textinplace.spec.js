@@ -107,10 +107,20 @@
         div = createDiv("initial text " + n);
         return expect(div.find('input[type="hidden"]').val()).toBe("initial text " + n);
       });
-      return it('should trim the value', function() {
+      it('should trim the value', function() {
         var div;
         div = createDiv(" initial text " + n + " ");
         return expect(div.find('input[type="hidden"]').val()).toBe("initial text " + n);
+      });
+      it('should preserve single quotes', function() {
+        var div;
+        div = createDiv("'initial text'");
+        return expect(div.find('input[type="hidden"]').val()).toBe("'initial text'");
+      });
+      return it('should preserve double quotes', function() {
+        var div;
+        div = createDiv('"initial text"');
+        return expect(div.find('input[type="hidden"]').val()).toBe('"initial text"');
       });
     });
     describe('the visible div', function() {

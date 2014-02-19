@@ -71,7 +71,8 @@
         var name, text, value;
         name = this.options.form_name + "_text";
         value = this.hidden.val();
-        text = $("<input type=\"text\" name=\"" + name + "\" value=\"" + value + "\" form=\"\" />");
+        text = $("<input type=\"text\" name=\"" + name + "\" form=\"\" />");
+        text.val(value);
         this.element.append(text);
         text.blur((function(_this) {
           return function(ev) {
